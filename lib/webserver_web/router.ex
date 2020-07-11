@@ -19,6 +19,7 @@ defmodule WebserverWeb.Router do
     get "/", PageController, :index
 
     resources "/servers", ServerController
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
