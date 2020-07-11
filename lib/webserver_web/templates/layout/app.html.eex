@@ -25,6 +25,9 @@
                 <a class="nav-link" href="#"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-server navitem-icon" aria-hidden="true"></i></div>Servers</a>
               </li>
               <li class="nav-item navitem-custom">
+                <a class="nav-link" href="#"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-filter navitem-icon" aria-hidden="true"></i></div>Filters</a>
+              </li>
+              <li class="nav-item navitem-custom">
                 <a class="nav-link" href="#"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-users navitem-icon" aria-hidden="true"></i></div>Users</a>
               </li>
             </ul>
