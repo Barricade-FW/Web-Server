@@ -20,6 +20,7 @@ defmodule WebserverWeb.Router do
 
     resources "/servers", ServerController
     resources "/users", UserController
+    resources "/filters", FilterController
   end
 
   # Other scopes may use custom stacks.

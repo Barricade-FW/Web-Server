@@ -1,0 +1,148 @@
+<h1>Show Filter</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @filter.name %>
+  </li>
+
+  <li>
+    <strong>Enabled:</strong>
+    <%= @filter.enabled %>
+  </li>
+
+  <li>
+    <strong>Action:</strong>
+    <%= @filter.action %>
+  </li>
+
+  <li>
+    <strong>Srcip:</strong>
+    <%= @filter.srcip %>
+  </li>
+
+  <li>
+    <strong>Dstip:</strong>
+    <%= @filter.dstip %>
+  </li>
+
+  <li>
+    <strong>Minttl:</strong>
+    <%= @filter.minttl %>
+  </li>
+
+  <li>
+    <strong>Maxttl:</strong>
+    <%= @filter.maxttl %>
+  </li>
+
+  <li>
+    <strong>Minlen:</strong>
+    <%= @filter.minlen %>
+  </li>
+
+  <li>
+    <strong>Maxlen:</strong>
+    <%= @filter.maxlen %>
+  </li>
+
+  <li>
+    <strong>Tos:</strong>
+    <%= @filter.tos %>
+  </li>
+
+  <li>
+    <strong>Pps:</strong>
+    <%= @filter.pps %>
+  </li>
+
+  <li>
+    <strong>Bps:</strong>
+    <%= @filter.bps %>
+  </li>
+
+  <li>
+    <strong>Blocktime:</strong>
+    <%= @filter.blocktime %>
+  </li>
+
+  <li>
+    <strong>Tcpenabled:</strong>
+    <%= @filter.tcpenabled %>
+  </li>
+
+  <li>
+    <strong>Tcpsport:</strong>
+    <%= @filter.tcpsport %>
+  </li>
+
+  <li>
+    <strong>Tcpdport:</strong>
+    <%= @filter.tcpdport %>
+  </li>
+
+  <li>
+    <strong>Tcpurg:</strong>
+    <%= @filter.tcpurg %>
+  </li>
+
+  <li>
+    <strong>Tcpack:</strong>
+    <%= @filter.tcpack %>
+  </li>
+
+  <li>
+    <strong>Tcprst:</strong>
+    <%= @filter.tcprst %>
+  </li>
+
+  <li>
+    <strong>Tcppsh:</strong>
+    <%= @filter.tcppsh %>
+  </li>
+
+  <li>
+    <strong>Tcpsyn:</strong>
+    <%= @filter.tcpsyn %>
+  </li>
+
+  <li>
+    <strong>Tcpfin:</strong>
+    <%= @filter.tcpfin %>
+  </li>
+
+  <li>
+    <strong>Udpenabled:</strong>
+    <%= @filter.udpenabled %>
+  </li>
+
+  <li>
+    <strong>Udpsport:</strong>
+    <%= @filter.udpsport %>
+  </li>
+
+  <li>
+    <strong>Udpdport:</strong>
+    <%= @filter.udpdport %>
+  </li>
+
+  <li>
+    <strong>Icmpenabled:</strong>
+    <%= @filter.icmpenabled %>
+  </li>
+
+  <li>
+    <strong>Icmpcode:</strong>
+    <%= @filter.icmpcode %>
+  </li>
+
+  <li>
+    <strong>Icmptype:</strong>
+    <%= @filter.icmptype %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.filter_path(@conn, :edit, @filter) %></span>
+<span><%= link "Back", to: Routes.filter_path(@conn, :index) %></span>

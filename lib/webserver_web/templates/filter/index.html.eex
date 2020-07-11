@@ -1,0 +1,80 @@
+<h1>Listing Filters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Enabled</th>
+      <th>Action</th>
+      <th>Srcip</th>
+      <th>Dstip</th>
+      <th>Minttl</th>
+      <th>Maxttl</th>
+      <th>Minlen</th>
+      <th>Maxlen</th>
+      <th>Tos</th>
+      <th>Pps</th>
+      <th>Bps</th>
+      <th>Blocktime</th>
+      <th>Tcpenabled</th>
+      <th>Tcpsport</th>
+      <th>Tcpdport</th>
+      <th>Tcpurg</th>
+      <th>Tcpack</th>
+      <th>Tcprst</th>
+      <th>Tcppsh</th>
+      <th>Tcpsyn</th>
+      <th>Tcpfin</th>
+      <th>Udpenabled</th>
+      <th>Udpsport</th>
+      <th>Udpdport</th>
+      <th>Icmpenabled</th>
+      <th>Icmpcode</th>
+      <th>Icmptype</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for filter <- @filters do %>
+    <tr>
+      <td><%= filter.name %></td>
+      <td><%= filter.enabled %></td>
+      <td><%= filter.action %></td>
+      <td><%= filter.srcip %></td>
+      <td><%= filter.dstip %></td>
+      <td><%= filter.minttl %></td>
+      <td><%= filter.maxttl %></td>
+      <td><%= filter.minlen %></td>
+      <td><%= filter.maxlen %></td>
+      <td><%= filter.tos %></td>
+      <td><%= filter.pps %></td>
+      <td><%= filter.bps %></td>
+      <td><%= filter.blocktime %></td>
+      <td><%= filter.tcpenabled %></td>
+      <td><%= filter.tcpsport %></td>
+      <td><%= filter.tcpdport %></td>
+      <td><%= filter.tcpurg %></td>
+      <td><%= filter.tcpack %></td>
+      <td><%= filter.tcprst %></td>
+      <td><%= filter.tcppsh %></td>
+      <td><%= filter.tcpsyn %></td>
+      <td><%= filter.tcpfin %></td>
+      <td><%= filter.udpenabled %></td>
+      <td><%= filter.udpsport %></td>
+      <td><%= filter.udpdport %></td>
+      <td><%= filter.icmpenabled %></td>
+      <td><%= filter.icmpcode %></td>
+      <td><%= filter.icmptype %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.filter_path(@conn, :show, filter) %></span>
+        <span><%= link "Edit", to: Routes.filter_path(@conn, :edit, filter) %></span>
+        <span><%= link "Delete", to: Routes.filter_path(@conn, :delete, filter), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Filter", to: Routes.filter_path(@conn, :new) %></span>

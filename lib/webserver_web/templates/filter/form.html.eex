@@ -1,0 +1,123 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
+
+  <%= label f, :enabled %>
+  <%= number_input f, :enabled %>
+  <%= error_tag f, :enabled %>
+
+  <%= label f, :action %>
+  <%= number_input f, :action %>
+  <%= error_tag f, :action %>
+
+  <%= label f, :srcip %>
+  <%= text_input f, :srcip %>
+  <%= error_tag f, :srcip %>
+
+  <%= label f, :dstip %>
+  <%= text_input f, :dstip %>
+  <%= error_tag f, :dstip %>
+
+  <%= label f, :minttl %>
+  <%= number_input f, :minttl %>
+  <%= error_tag f, :minttl %>
+
+  <%= label f, :maxttl %>
+  <%= number_input f, :maxttl %>
+  <%= error_tag f, :maxttl %>
+
+  <%= label f, :minlen %>
+  <%= number_input f, :minlen %>
+  <%= error_tag f, :minlen %>
+
+  <%= label f, :maxlen %>
+  <%= number_input f, :maxlen %>
+  <%= error_tag f, :maxlen %>
+
+  <%= label f, :tos %>
+  <%= number_input f, :tos %>
+  <%= error_tag f, :tos %>
+
+  <%= label f, :pps %>
+  <%= number_input f, :pps %>
+  <%= error_tag f, :pps %>
+
+  <%= label f, :bps %>
+  <%= number_input f, :bps %>
+  <%= error_tag f, :bps %>
+
+  <%= label f, :blocktime %>
+  <%= number_input f, :blocktime %>
+  <%= error_tag f, :blocktime %>
+
+  <%= label f, :tcpenabled %>
+  <%= number_input f, :tcpenabled %>
+  <%= error_tag f, :tcpenabled %>
+
+  <%= label f, :tcpsport %>
+  <%= number_input f, :tcpsport %>
+  <%= error_tag f, :tcpsport %>
+
+  <%= label f, :tcpdport %>
+  <%= number_input f, :tcpdport %>
+  <%= error_tag f, :tcpdport %>
+
+  <%= label f, :tcpurg %>
+  <%= number_input f, :tcpurg %>
+  <%= error_tag f, :tcpurg %>
+
+  <%= label f, :tcpack %>
+  <%= number_input f, :tcpack %>
+  <%= error_tag f, :tcpack %>
+
+  <%= label f, :tcprst %>
+  <%= number_input f, :tcprst %>
+  <%= error_tag f, :tcprst %>
+
+  <%= label f, :tcppsh %>
+  <%= number_input f, :tcppsh %>
+  <%= error_tag f, :tcppsh %>
+
+  <%= label f, :tcpsyn %>
+  <%= number_input f, :tcpsyn %>
+  <%= error_tag f, :tcpsyn %>
+
+  <%= label f, :tcpfin %>
+  <%= number_input f, :tcpfin %>
+  <%= error_tag f, :tcpfin %>
+
+  <%= label f, :udpenabled %>
+  <%= number_input f, :udpenabled %>
+  <%= error_tag f, :udpenabled %>
+
+  <%= label f, :udpsport %>
+  <%= number_input f, :udpsport %>
+  <%= error_tag f, :udpsport %>
+
+  <%= label f, :udpdport %>
+  <%= number_input f, :udpdport %>
+  <%= error_tag f, :udpdport %>
+
+  <%= label f, :icmpenabled %>
+  <%= number_input f, :icmpenabled %>
+  <%= error_tag f, :icmpenabled %>
+
+  <%= label f, :icmpcode %>
+  <%= number_input f, :icmpcode %>
+  <%= error_tag f, :icmpcode %>
+
+  <%= label f, :icmptype %>
+  <%= number_input f, :icmptype %>
+  <%= error_tag f, :icmptype %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>
