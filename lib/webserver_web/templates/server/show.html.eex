@@ -1,0 +1,43 @@
+<h1>Show Server</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @server.name %>
+  </li>
+
+  <li>
+    <strong>Ip:</strong>
+    <%= @server.ip %>
+  </li>
+
+  <li>
+    <strong>Port:</strong>
+    <%= @server.port %>
+  </li>
+
+  <li>
+    <strong>Uptime:</strong>
+    <%= @server.uptime %>
+  </li>
+
+  <li>
+    <strong>Online:</strong>
+    <%= @server.online %>
+  </li>
+
+  <li>
+    <strong>Accepted:</strong>
+    <%= @server.accepted %>
+  </li>
+
+  <li>
+    <strong>Blocked:</strong>
+    <%= @server.blocked %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.server_path(@conn, :edit, @server) %></span>
+<span><%= link "Back", to: Routes.server_path(@conn, :index) %></span>

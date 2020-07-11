@@ -1,0 +1,38 @@
+<h1>Listing Servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ip</th>
+      <th>Port</th>
+      <th>Uptime</th>
+      <th>Online</th>
+      <th>Accepted</th>
+      <th>Blocked</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for server <- @servers do %>
+    <tr>
+      <td><%= server.name %></td>
+      <td><%= server.ip %></td>
+      <td><%= server.port %></td>
+      <td><%= server.uptime %></td>
+      <td><%= server.online %></td>
+      <td><%= server.accepted %></td>
+      <td><%= server.blocked %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.server_path(@conn, :show, server) %></span>
+        <span><%= link "Edit", to: Routes.server_path(@conn, :edit, server) %></span>
+        <span><%= link "Delete", to: Routes.server_path(@conn, :delete, server), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Server", to: Routes.server_path(@conn, :new) %></span>
