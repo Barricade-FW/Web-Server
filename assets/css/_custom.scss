@@ -1,0 +1,22 @@
+$primary-bg: #0f0f0f;
+$nav-bg: #1a1a1a;
+$content-bg: #2e2e2e;
+$nav-border: #0f0f0f;
+
+body
+{
+    background-color: $primary-bg;
+}
+
+#navbar
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: $nav-bg !important;
+}
+
+.navitem-custom
+{
+    padding: 15px;
+    border-right: 1px solid $nav-border;
+}
