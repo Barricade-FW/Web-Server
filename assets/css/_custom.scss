@@ -2,10 +2,17 @@ $primary-bg: #0f0f0f;
 $nav-bg: #1a1a1a;
 $content-bg: #2e2e2e;
 $nav-border: #0f0f0f;
+$active-color: #6feeff;
+$primary-color: #FFFFFF;
 
 body
 {
     background-color: $primary-bg;
+}
+
+.navbar-div
+{
+    padding: 0px;
 }
 
 #navbar
@@ -17,6 +24,36 @@ body
 
 .navitem-custom
 {
-    padding: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
     border-right: 1px solid $nav-border;
+    font-size: 14px;
+}
+
+.navitem-custom > a
+{
+    text-align: center;
+}
+
+.navitem-custom:hover > a:link, .navitem-custom:hover .navitem-icon
+{
+    color: $primary-color !important;
+}
+
+.navitem-active > a
+{
+    color: $primary-color;
+}
+
+.navitem-icon
+{
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.navitem-icon-active
+{
+    color: $primary-color !important;
 }
