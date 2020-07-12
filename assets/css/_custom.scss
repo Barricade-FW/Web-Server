@@ -4,6 +4,7 @@ $content-bg: #2e2e2e;
 $nav-border: #0f0f0f;
 $active-color: #6feeff;
 $primary-color: #FFFFFF;
+$danger-text: #a80000;
 
 body
 {
@@ -82,4 +83,9 @@ body
 .bold
 {
     font-weight: bold;
+}
+
+.danger-text
+{
+    color: $danger-text;
 }

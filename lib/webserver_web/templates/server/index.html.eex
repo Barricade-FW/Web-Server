@@ -19,8 +19,8 @@
         <tr>
           <th>Name</th>
           <th>IP</th>
+          <th>Status</th>
           <th>Uptime</th>
-          <th>Online</th>
           <th>Accepted</th>
           <th>Blocked</th>
 
@@ -32,10 +32,34 @@
         <tr>
           <td><%= server.name %></td>
           <td><%= server.ip %></td>
-          <td><%= server.uptime %></td>
-          <td><%= server.online %></td>
-          <td><%= server.accepted %></td>
-          <td><%= server.blocked %></td>
+          <td>
+            <%= if server.online do %>
+              <span class="success-text">Online</span>
+            <% else %>
+              <span class="danger-text">Offline</span>
+            <% end %>
+          </td>
+          <td>
+            <%= if server.online do %>
+              <%= server.uptime %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td>
+            <%= if server.online do %>
+              <%= server.accepted %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td>
+            <%= if server.online do %>
+              <%= server.blocked %>
+            <% else %>
+              -
+            <% end %>
+          </td>
 
           <td>
             <%= button("Edit", to: Routes.server_path(@conn, :edit, server), method: "get", class: "btn btn-primary") %>
