@@ -8,16 +8,19 @@ defmodule Webserver.Servers.Server do
     field :ip, :string
     field :name, :string
     field :online, :integer
-    field :port, :integer
     field :uptime, :integer
 
     timestamps()
   end
 
+  @spec changeset(
+          {map, map} | %{:__struct__ => atom | %{__changeset__: map}, optional(atom) => any},
+          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
+        ) :: Ecto.Changeset.t()
   @doc false
   def changeset(server, attrs) do
     server
-    |> cast(attrs, [:name, :ip, :port, :uptime, :online, :accepted, :blocked])
-    |> validate_required([:name, :ip, :port, :uptime, :online, :accepted, :blocked])
+    |> cast(attrs, [:name, :ip, :uptime, :online, :accepted, :blocked])
+    |> validate_required([:name, :ip])
   end
 end

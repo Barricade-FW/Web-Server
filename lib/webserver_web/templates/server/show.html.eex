@@ -13,11 +13,6 @@
   </li>
 
   <li>
-    <strong>Port:</strong>
-    <%= @server.port %>
-  </li>
-
-  <li>
     <strong>Uptime:</strong>
     <%= @server.uptime %>
   </li>

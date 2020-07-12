@@ -58,3 +58,28 @@ body
 {
     color: $primary-color !important;
 }
+
+.table-custom
+{
+    color: $primary-color;
+}
+
+.table-custom th
+{
+    border: none;
+}
+
+.table-custom thead th
+{
+    border-bottom: 1px solid $nav-bg;
+}
+
+.table-custom td
+{
+    border-top: 1px solid $nav-bg;
+}
+
+.bold
+{
+    font-weight: bold;
+}

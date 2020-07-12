@@ -1,39 +1,27 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-md">
+    <%= form_for @changeset, @action, fn f -> %>
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name %>
-  <%= error_tag f, :name %>
+      <div class="form-group">
+        <%= label f, :name, class: "bold" %>
+        <%= text_input f, :name, class: "form-control", id: "server_name" %>
+        <%= error_tag f, :name %>
+        <small class="form-help text-muted">A nickname for the server to help identify.</small>
+      </div>
 
-  <%= label f, :ip %>
-  <%= text_input f, :ip %>
-  <%= error_tag f, :ip %>
+      <div class="form-group">
+        <%= label f, :ip, "IP", class: "bold" %>
+        <%= text_input f, :ip, class: "form-control", id: "server_ip" %>
+        <%= error_tag f, :ip %>
+        <small id="ipdesc" class="form-help text-muted">The firewall's server IP.</small>
+      </div>
 
-  <%= label f, :port %>
-  <%= number_input f, :port %>
-  <%= error_tag f, :port %>
-
-  <%= label f, :uptime %>
-  <%= number_input f, :uptime %>
-  <%= error_tag f, :uptime %>
-
-  <%= label f, :online %>
-  <%= number_input f, :online %>
-  <%= error_tag f, :online %>
-
-  <%= label f, :accepted %>
-  <%= number_input f, :accepted %>
-  <%= error_tag f, :accepted %>
-
-  <%= label f, :blocked %>
-  <%= number_input f, :blocked %>
-  <%= error_tag f, :blocked %>
-
-  <div>
-    <%= submit "Save" %>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    <% end %>
   </div>
-<% end %>
+</div>
