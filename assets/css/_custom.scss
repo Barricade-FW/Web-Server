@@ -5,6 +5,7 @@ $nav-border: #0f0f0f;
 $active-color: #6feeff;
 $primary-color: #FFFFFF;
 $danger-text: #a80000;
+$success-text: #4efc82;
 
 body
 {
@@ -88,4 +89,9 @@ body
 .danger-text
 {
     color: $danger-text;
+}
+
+.success-text
+{
+    color: $success-text;
 }
