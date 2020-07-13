@@ -27,16 +27,16 @@ body
 
 .navitem-custom
 {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 30px;
-    padding-right: 30px;
     border-right: 1px solid $nav-border;
     font-size: 14px;
 }
 
 .navitem-custom > a
 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
     text-align: center;
 }
 
@@ -45,7 +45,7 @@ body
     color: $primary-color !important;
 }
 
-.navitem-active > a
+.navitem-active > a:link a:visited a:hover a:active
 {
     color: $primary-color;
 }
@@ -94,4 +94,9 @@ body
 .success-text
 {
     color: $success-text;
+}
+
+.navbar-nav
+{
+    margin: 0 auto;
 }
