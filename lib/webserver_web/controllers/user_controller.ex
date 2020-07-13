@@ -6,12 +6,18 @@ defmodule WebserverWeb.UserController do
 
   def index(conn, _params) do
     users = Accounts.list_users()
-    render(conn, "index.html", users: users)
+
+    conn
+    |> assign(:page_users, 1)
+    |> render("index.html", users: users)
   end
 
   def new(conn, _params) do
     changeset = Accounts.change_user(%User{})
-    render(conn, "new.html", changeset: changeset)
+
+    conn
+    |> assign(:page_users, 1)
+    |> render("new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -19,22 +25,31 @@ defmodule WebserverWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User created successfully.")
+        |> assign(:page_users, 1)
         |> redirect(to: Routes.user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> assign(:page_users, 1)
+        |> render("new.html", changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     user = Accounts.get_user!(id)
-    render(conn, "show.html", user: user)
+
+    conn
+    |> assign(:page_users, 1)
+    |> render("show.html", user: user)
   end
 
   def edit(conn, %{"id" => id}) do
     user = Accounts.get_user!(id)
     changeset = Accounts.change_user(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
+
+    conn
+    |> assign(:page_users, 1)
+    |> render("edit.html", user: user, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
@@ -44,10 +59,13 @@ defmodule WebserverWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User updated successfully.")
+        |> assign(:page_users, 1)
         |> redirect(to: Routes.user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", user: user, changeset: changeset)
+        conn
+        |> assign(:page_users, 1)
+        |> render("edit.html", user: user, changeset: changeset)
     end
   end
 
@@ -57,6 +75,7 @@ defmodule WebserverWeb.UserController do
 
     conn
     |> put_flash(:info, "User deleted successfully.")
+    |> assign(:page_users, 1)
     |> redirect(to: Routes.user_path(conn, :index))
   end
 end

@@ -18,17 +18,17 @@
         <div class="container">
           <div class="collapse navbar-collapse" id="navbarmenu">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item navitem-custom navitem-active active">
-                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.page_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-tachometer navitem-icon navitem-icon-active" aria-hidden="true"></i></div>Dashboard <span class="sr-only">(current)</span></a>
+              <li class="nav-item navitem-custom <%= if assigns[:page_dashboard] do %>navitem-active active<% end %>">
+                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.page_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-tachometer navitem-icon <%= if assigns[:page_dashboard] do %>navitem-icon-active<% end %>" aria-hidden="true"></i></div>Dashboard</a>
               </li>
-              <li class="nav-item navitem-custom">
-                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.server_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-server navitem-icon" aria-hidden="true"></i></div>Servers</a>
+              <li class="nav-item navitem-custom <%= if assigns[:page_servers] do %>navitem-active active<% end %>">
+                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.server_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-server navitem-icon <%= if assigns[:page_servers] do %>navitem-icon-active<% end %>" aria-hidden="true"></i></div>Servers</a>
               </li>
-              <li class="nav-item navitem-custom">
-                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.filter_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-filter navitem-icon" aria-hidden="true"></i></div>Filters</a>
+              <li class="nav-item navitem-custom <%= if assigns[:page_filters] do %>navitem-active active<% end %>">
+                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.filter_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-filter navitem-icon <%= if assigns[:page_filters] do %>navitem-icon-active<% end %>" aria-hidden="true"></i></div>Filters</a>
               </li>
-              <li class="nav-item navitem-custom">
-                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.user_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-users navitem-icon" aria-hidden="true"></i></div>Users</a>
+              <li class="nav-item navitem-custom <%= if assigns[:page_users] do %>navitem-active active<% end %>">
+                <a class="nav-link" href="<%= WebserverWeb.Router.Helpers.user_path(WebserverWeb.Endpoint, :index) %>"><div class="d-flex align-items-center justify-content-center"><i class="fa fa-users navitem-icon <%= if assigns[:page_users] do %>navitem-icon-active<% end %>" aria-hidden="true"></i></div>Users</a>
               </li>
             </ul>
           </div>

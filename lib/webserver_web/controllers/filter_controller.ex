@@ -6,12 +6,18 @@ defmodule WebserverWeb.FilterController do
 
   def index(conn, _params) do
     filters = Filters.list_filters()
-    render(conn, "index.html", filters: filters)
+
+    conn
+    |> assign(:page_filters, 1)
+    |> render("index.html", filters: filters)
   end
 
   def new(conn, _params) do
     changeset = Filters.change_filter(%Filter{})
-    render(conn, "new.html", changeset: changeset)
+
+    conn
+    |> assign(:page_filters, 1)
+    |> render("new.html", changeset: changeset)
   end
 
   def create(conn, %{"filter" => filter_params}) do
@@ -19,22 +25,31 @@ defmodule WebserverWeb.FilterController do
       {:ok, filter} ->
         conn
         |> put_flash(:info, "Filter created successfully.")
+        |> assign(:page_filters, 1)
         |> redirect(to: Routes.filter_path(conn, :show, filter))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> assign(:page_filters, 1)
+        |> render("new.html", changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     filter = Filters.get_filter!(id)
-    render(conn, "show.html", filter: filter)
+
+    conn
+    |> assign(:page_filters, 1)
+    |> render("show.html", filter: filter)
   end
 
   def edit(conn, %{"id" => id}) do
     filter = Filters.get_filter!(id)
     changeset = Filters.change_filter(filter)
-    render(conn, "edit.html", filter: filter, changeset: changeset)
+
+    conn
+    |> assign(:page_filters, 1)
+    |> render("edit.html", filter: filter, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "filter" => filter_params}) do
@@ -44,10 +59,13 @@ defmodule WebserverWeb.FilterController do
       {:ok, filter} ->
         conn
         |> put_flash(:info, "Filter updated successfully.")
+        |> assign(:page_filters, 1)
         |> redirect(to: Routes.filter_path(conn, :show, filter))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", filter: filter, changeset: changeset)
+        conn
+        |> assign(:page_filters, 1)
+        |> render("edit.html", filter: filter, changeset: changeset)
     end
   end
 
@@ -57,6 +75,7 @@ defmodule WebserverWeb.FilterController do
 
     conn
     |> put_flash(:info, "Filter deleted successfully.")
+    |> assign(:page_filters, 1)
     |> redirect(to: Routes.filter_path(conn, :index))
   end
 end
