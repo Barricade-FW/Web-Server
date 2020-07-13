@@ -45,7 +45,7 @@ body
     color: $primary-color !important;
 }
 
-.navitem-active > a:link a:visited a:hover a:active
+.navitem-active > a
 {
     color: $primary-color;
 }
