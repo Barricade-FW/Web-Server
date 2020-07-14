@@ -1,8 +1,14 @@
 defmodule WebserverWeb.FilterController do
   use WebserverWeb, :controller
 
+  alias Webserver.Repo
+
   alias Webserver.Filters
   alias Webserver.Filters.Filter
+
+  alias Webserver.Servers.Server
+
+  import Ecto.Query
 
   def index(conn, _params) do
     filters = Filters.list_filters()
@@ -14,10 +20,12 @@ defmodule WebserverWeb.FilterController do
 
   def new(conn, _params) do
     changeset = Filters.change_filter(%Filter{})
+    servers = Repo.all from s in Server, select: {s.name, s.id}
 
     conn
     |> assign(:page_filters, 1)
-    |> render("new.html", changeset: changeset)
+    |> assign(:enable_checked, true)
+    |> render("new.html", %{changeset: changeset, servers: servers})
   end
 
   def create(conn, %{"filter" => filter_params}) do
@@ -46,10 +54,13 @@ defmodule WebserverWeb.FilterController do
   def edit(conn, %{"id" => id}) do
     filter = Filters.get_filter!(id)
     changeset = Filters.change_filter(filter)
+    servers = Repo.all from s in Server, select: {s.name, s.id}
+    checked = filter.enabled
 
     conn
     |> assign(:page_filters, 1)
-    |> render("edit.html", filter: filter, changeset: changeset)
+    |> assign(:enable_checked, checked)
+    |> render("edit.html", filter: filter, changeset: changeset, servers: servers)
   end
 
   def update(conn, %{"id" => id, "filter" => filter_params}) do
