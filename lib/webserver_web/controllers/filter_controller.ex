@@ -25,7 +25,7 @@ defmodule WebserverWeb.FilterController do
     conn
     |> assign(:page_filters, 1)
     |> assign(:enable_checked, true)
-    |> render("new.html", %{changeset: changeset, servers: servers})
+    |> render("new.html", changeset: changeset, servers: servers)
   end
 
   def create(conn, %{"filter" => filter_params}) do
