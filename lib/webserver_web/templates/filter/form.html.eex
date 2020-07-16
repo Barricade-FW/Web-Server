@@ -7,36 +7,184 @@
         </div>
       <% end %>
 
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-md-4">
           <h2 class="text-center">General</h1>
 
           <div class="form-group">
             <%= label f, :name, class: "bold" %>
-            <%= text_input f, :name, class: "form-control", id: "filter_name" %>
+            <%= text_input f, :name, class: "form-control" %>
             <%= error_tag f, :name %>
             <small class="form-help text-muted">A nickname for the filter to help identify.</small>
           </div>
 
           <div class="form-group">
             <%= label f, :enabled, class: "bold" %>
-
-            <%= checkbox f, :enabled, "data-toggle": "toggle", checked: @enable_checked %>
+            <br />
+            <%= checkbox f, :enabled, "data-toggle": "toggle", checked: @enable_checked, class: "form-control" %>
+            <br />
             <small class="form-help text-muted">Whether to enable filter or not.</small>
           </div>
-        </div>
 
-        <div class="col-md-4">
-          <h2 class="text-center">Servers</h1>
+          <div class="form-group">
+            <%= label f, :action, class: "bold" %>
+            <br />
+            <%= checkbox f, :action, "data-on": "Accept", "data-off": "Block", "data-onstyle": "success", "data-offstyle": "danger", "data-toggle": "toggle", checked: true, class: "form-control" %>
+            <br />
+            <small class="form-help text-muted">What to do with packets that match this filter.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :pps, "Packets Per Second", class: "bold" %>
+            <%= text_input f, :pps, class: "form-control" %>
+            <%= error_tag f, :pps %>
+            <small class="form-help text-muted">The maximum packets per second before matching.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :bps, "Bytes Per Second", class: "bold" %>
+            <%= text_input f, :bps, class: "form-control" %>
+            <%= error_tag f, :bps %>
+            <small class="form-help text-muted">The maximum bytes per second before matching.</small>
+          </div>
 
           <div class="form-group">
             <%= label f, :servers, class: "bold" %>
             <%= multiple_select(f, :servers, @servers, class: "form-control") %>
+            <small class="form-help text-muted">Which firewall servers to apply this filter to.</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="text-center">IP Header</h1>
+
+          <div class="form-group">
+            <%= label f, :srcip, "Source IP", class: "bold" %>
+            <%= text_input f, :srcip, class: "form-control" %>
+            <%= error_tag f, :srcip %>
+            <small class="form-help text-muted">The source IP to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :dstip, "Destination IP", class: "bold" %>
+            <%= text_input f, :dstip, class: "form-control" %>
+            <%= error_tag f, :dstip %>
+            <small class="form-help text-muted">The destination IP to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :maxlen, "Max Length", class: "bold" %>
+            <%= text_input f, :maxlen, class: "form-control" %>
+            <%= error_tag f, :maxlen %>
+            <small class="form-help text-muted">The maximum length of the packet to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :minlen, "Min Length", class: "bold" %>
+            <%= text_input f, :minlen, class: "form-control" %>
+            <%= error_tag f, :minlen %>
+            <small class="form-help text-muted">The minimum length of the packet to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :maxttl, "Max TTL", class: "bold" %>
+            <%= text_input f, :maxttl, class: "form-control" %>
+            <%= error_tag f, :maxttl %>
+            <small class="form-help text-muted">The maximum TTL (time-to-live) of the packet to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :minttl, "Min TTL", class: "bold" %>
+            <%= text_input f, :minttl, class: "form-control" %>
+            <%= error_tag f, :minttl %>
+            <small class="form-help text-muted">The minimum TTL (time-to-live) of the packet to match.</small>
           </div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <h2 class="text-center">TCP Options</h2>
+
+          <div class="form-group">
+            <%= label f, :tcpenabled, "TCP Enabled", class: "bold" %>
+            <br />
+            <%= checkbox f, :tcpenabled, "data-toggle": "toggle", checked: false, class: "form-control" %>
+            <br />
+            <small class="form-help text-muted">Whether to match TCP options or not.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :tcpsport, "Source Port", class: "bold" %>
+            <%= text_input f, :tcpsport, class: "form-control" %>
+            <%= error_tag f, :tcpsport %>
+            <small class="form-help text-muted">The TCP source port to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :tcpdport, "Destination Port", class: "bold" %>
+            <%= text_input f, :tcpdport, class: "form-control" %>
+            <%= error_tag f, :tcpdport %>
+            <small class="form-help text-muted">The TCP destination port to match.</small>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <h2 class="text-center">UDP Options</h2>
+
+          <div class="form-group">
+            <%= label f, :udpenabled, "UDP Enabled", class: "bold" %>
+            <br />
+            <%= checkbox f, :udpenabled, "data-toggle": "toggle", checked: false, class: "form-control" %>
+            <br />
+            <small class="form-help text-muted">Whether to match UDP options or not.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :udpsport, "Source Port", class: "bold" %>
+            <%= text_input f, :udpsport, class: "form-control" %>
+            <%= error_tag f, :udpsport %>
+            <small class="form-help text-muted">The UDP source port to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :udpdport, "Destination Port", class: "bold" %>
+            <%= text_input f, :udpdport, class: "form-control" %>
+            <%= error_tag f, :udpdport %>
+            <small class="form-help text-muted">The UDP destination port to match.</small>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <h2 class="text-center">ICMP Options</h2>
+
+          <div class="form-group">
+            <%= label f, :icmpenabled, "ICMP Enabled", class: "bold" %>
+            <br />
+            <%= checkbox f, :icmpenabled, "data-toggle": "toggle", checked: false, class: "form-control" %>
+            <br />
+            <small class="form-help text-muted">Whether to match ICMP options or not.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :icmpcode, "ICMP Code", class: "bold" %>
+            <%= text_input f, :icmpcode, class: "form-control" %>
+            <%= error_tag f, :icmpcode %>
+            <small class="form-help text-muted">The ICMP code to match.</small>
+          </div>
+
+          <div class="form-group">
+            <%= label f, :icmptype, "ICMP Type", class: "bold" %>
+            <%= text_input f, :icmptype, class: "form-control" %>
+            <%= error_tag f, :icmptype %>
+            <small class="form-help text-muted">The ICMP type to match.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     <% end %>
   </div>
 </div>
