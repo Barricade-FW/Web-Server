@@ -14,7 +14,9 @@ defmodule Webserver.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Webserver.PubSub},
       # Start the Endpoint (http/https)
-      WebserverWeb.Endpoint
+      WebserverWeb.Endpoint,
+      # Start API.
+      WebserverAPI
       # Start a worker by calling: Webserver.Worker.start_link(arg)
       # {Webserver.Worker, arg}
     ]
